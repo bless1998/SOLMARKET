@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Administrador - Ventas Realizadas</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <style>
+    body {
+      background-color: #f5f6fa;
+    }
+    .navbar {
+      background-color: #198754;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .table thead {
+      background-color: #198754;
+      color: white;
+    }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Sol-Market | Admin</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin_solicitudes') }}">Solicitudes de Registro</a>
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="card p-4">
+      <h3 class="mb-4 text-center text-success">📊 Ventas Realizadas</h3>
+
+      {% if ventas and ventas|length > 0 %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+          <thead>
+            <tr class="text-center">
+              <th>ID Venta</th>
+              <th>ID Vendedor</th>
+              <th>Nombre del Vendedor</th>
+              <th>Nombre del Comprador</th>
+              <th>Energía Vendida (Horas)</th>
+              <th>Precio Total ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for venta in ventas %}
+            <tr>
+              <td class="text-center">{{ venta.id }}</td>
+              <td class="text-center">{{ venta.id_vendedor }}</td>
+              <td>{{ venta.nombre_vendedor }}</td>
+              <td>{{ venta.nombre_comprador }}</td>
+              <td class="text-center">{{ venta.energia_vendida }}</td>
+              <td class="text-end">${{ "%.2f"|format(venta.preciototal) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+        <div class="alert alert-warning text-center">
+          ⚠️ No se han registrado ventas todavía.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <footer class="text-center mt-5 mb-3 text-muted">
+    © 2025 Sol-Market | Panel del Administrador
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

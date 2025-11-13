@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOL-MARKET</title>
+
+  <!-- Bootstrap y estilos -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link href="{{ url_for('static', filename='css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="navbar-brand">
+            <img src="{{ url_for('static', filename='img/logo222.png') }}" alt="" width="150" height="60" />
+          </div>
+
+          <div class="navbar-brand2">
+            <img src="{{ url_for('static', filename='img/logot.png') }}" alt="" width="150" height="60" />
+          </div>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('reservas') }}">Reserva De Compra</a></li>
+            <li><a href="{{ url_for('ventas') }}">Registro De Venta</a></li>
+            <li role="presentation"><a href="{{ url_for('ofertas') }}" class="active">Ofertas</a></li>
+            <li><a href="{{ url_for('registro') }}">Regístrate</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="paquetes">
+    <div class="text-center">
+      <h2>Paquetes</h2>
+      <p>Aquí encontrarás todas las ofertas de energía disponibles,<br> si haces click sobre ellas podrás verlas en detalle.</p>
+    </div>
+    <div class="container">
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{{ url_for('static', filename='img/eneo1.jpeg') }}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4><a class="cityT" href="{{ url_for('ventas') }}">Oferta #1</a></h4>
+            <p>100 HORAS POR 70.000 / V: Juan Diaz.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{{ url_for('static', filename='img/eneo2.jpg') }}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4><a class="cityT" href="{{ url_for('ofertas') }}">Oferta #2</a></h4>
+            <p>100.000 HORAS C/U Por 650$ (Mínimo 500 horas de compra) / V: Alfonso Restrepo.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="effect-marley">
+          <img src="{{ url_for('static', filename='img/eneo3.jpeg') }}" alt="" class="img-responsive" />
+          <figcaption>
+            <h4><a class="cityT" href="{{ url_for('ofertas') }}">Oferta #3</a></h4>
+            <p>10 horas x 50.000 / V: Veronica Franco.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <h4>Sobre Nosotros</h4>
+        <p>Sol Market es un software que facilita la compra y venta de energía.</p>
+        <div class="contacto-info">
+          <ul>
+            <li><i class="fa fa-home fa"></i> Medellín, Colombia </li>
+            <li><i class="fa fa-phone fa"></i> +57 4488123 </li>
+            <li><i class="fa fa-envelope fa"></i> solmarketdea@gmail.com </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
+        <h4>¡RESOLVEMOS TUS DUDAS!</h4>
+        <p>¿Tienes alguna duda? Pregúntale a nuestro chat box.</p>
+        <div class="btn-gamp">
+          <a type="submit" class="btn btn-default" href="#">CHAT BOX SM</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sub-footer">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a target="_blank" href="https://es-la.facebook.com/tourxtremoo/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://www.instagram.com/tourxtremo/" class="ig tool-tip" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCfn0xZNlZ5Go3OfRtU1pO9Q/featured" class="yt tool-tip" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-md-offset-4">
+        <div class="copyright">
+          &copy; Sol Market. All Rights Reserved.
+          <div class="credits">
+            <a>Sol Market</a> by <a>Equipo SM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+</html>

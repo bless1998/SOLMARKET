@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Las 3 metaetiquetas anteriores * deben * ser lo primero en la cabeza; cualquier otro contenido principal debe venir * después * de estas etiquetas -->
+   <title>SOL-MARKET</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" />
+ 
+</head>
+
+<body>
+   <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+          <div class="navbar-brand">
+            <img src="img/logo222.png" alt="" width="150" height="60"/>         
+          </div>
+        
+          <div class="navbar-brand2">
+             
+            <img src="img/logot.png" alt="" width="150" height="60"/>         
+          </div>
+
+
+        </div>
+          <div class="navbar-collapse collapse">
+          <div class="menu">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a href="index.html" >Inicio</a></li>
+              <li role="presentation"><a href="reservas.html" class="active">Registro</a></li>
+              <li role="presentation"><a href="cuenta.html">Inicio de sesion</a></li>
+              <li role="presentation"><a href="contacto.html">Contactanos</a></li>
+                 <li role="presentation"><a href="paquetes.html">Ofertas de Energia</a></li>
+              
+            </ul>
+          </div>
+        </div> 
+      </div>
+      <!--/.container-->
+    </nav>
+    <!--/nav-->
+  </header>
+  <!--/header-->
+
+  <section class="contacto-page">
+    <div class="container">
+      <div class="text-center">
+        <h2>Escribe aquí tu mensaje!</h2>
+        <p>Envianos tus opiniones, quejas o reclamos llenando este formulario</p>
+      </div>
+      <div class="row contacto-wrap">
+        <div class="col-md-6 col-md-offset-3">
+          <div id="sendmessage">Su mensaje ha sido enviado. Gracias!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactoForm">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" data-rule="minlen:4" data-msg="Por favor ingrese al menos  4 caracteres" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Tu correo" data-rule="email" data-msg="Por favor ingrese un correo valido" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Por favor ingrese al menos 8 caracteres en el asunto" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escribe algo para nosotros" placeholder="Mensaje"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Enviar mensaje</button></div>
+          </form>
+        </div>
+      </div>
+      <!--/.row-->
+    </div>
+    <!--/.container-->
+  </section>
+  <!--/#contacto-page-->
+
+
+  
+  <footer>
+    <div class="container">
+      <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <h4>Sobre Nosotros</h4>
+        <p> Sol Market es un software que facilitara la compra y venta de energia.</p>
+        <div class="contacto-info">
+          <ul>
+            <li><i class="fa fa-home fa"></i> Medellín, Colombia </li>
+            <li><i class="fa fa-phone fa"></i> +57 4488123 </li>
+            <li><i class="fa fa-envelope fa"></i> solmarketdea@gmail.com </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
+        <div class="">
+          <h4>RESOLVEMOS TUS DUDAS!</h4>
+          <p>¿TIENES ALGUNA DUDA? Preguntale a nuestro chat box las dudas que tengas</p>
+         
+          <div class="btn-gamp">
+            <a type="submit" class="btn btn-default" href="chatbox.html">CHAT BOX SM</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <div class="sub-footer">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a target="_blank" href="https://es-la.facebook.com/tourxtremoo/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://www.instagram.com/tourxtremo/" class="ig tool-tip" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCfn0xZNlZ5Go3OfRtU1pO9Q/featured" class="yt tool-tip" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-md-offset-4">
+        <div class="copyright">
+          &copy; TourXtremo. All Rights Reserved.
+          <div class="credits">
+        
+            <a>TourXtremo</a> by <a>TourXtremo</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
+  <script src="js/wow.min.js"></script>
+  <script>
+    wow = new WOW({}).init();
+  </script>
+  <script>
+    (function($) {
+      //Google Map
+      var get_latitude = $('#google-map').data('latitude');
+      var get_longitude = $('#google-map').data('longitude');
+
+      function initialize_google_map() {
+        var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
+        var mapOptions = {
+          zoom: 14,
+          scrollwheel: false,
+          center: myLatlng
+        };
+        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize_google_map);
+    })(jQuery);
+  </script>
+  <script src="contactform/contactform.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro - Sol Market</title>
+
+  <!-- Bootstrap y estilos -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="p-4" style="background-color: #0f172a; color: white;">
+
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="navbar-brand">
+            <img src="{{ url_for('static', filename='img/logo222.png') }}" alt="Logo Sol Market" width="150" height="60">
+          </div>
+          
+          <div class="navbar-brand2">
+            <img src="{{ url_for('static', filename='img/logot.png') }}" alt="Sol Market Texto" width="150" height="60">
+          </div>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation"><a href="{{ url_for('login') }}" class="active">Login</a></li>
+         
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="mb-4 text-center" style="color: #00bcd4;">Registro de Usuario</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success text-center">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- 🔧 Aquí se corrige la acción del formulario -->
+    <form action="{{ url_for('registro_form') }}" method="post">
+
+      <input type="text" name="nombre" placeholder="Nombre completo" class="form-control mb-3" required>
+      <input type="text" name="numero_documento" placeholder="Número de Documento" class="form-control mb-3" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="form-control mb-3" required>
+      <input type="text" name="direccion" placeholder="Dirección" class="form-control mb-3">
+      <input type="password" name="contrasena" placeholder="Crea una contraseña" class="form-control mb-3" required>
+
+      <select name="tipo_usuario" class="form-control mb-3" required>
+        <option value="">Seleccione un rol</option>
+        <option value="comprador">Comprador</option>
+        <option value="vendedor">Vendedor</option>
+        <option value="comprador-vendedor">Comprador - Vendedor</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary w-100">Guardar Registro</button>
+    </form>
+  </div>
+
+  <footer class="mt-5 bg-dark text-white pt-4 pb-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3 wow fadeInDown">
+          <h4>Sobre Nosotros</h4>
+          <p>Sol Market es un software que facilita la compra y venta de energía solar.</p>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-home"></i> Medellín, Colombia</li>
+            <li><i class="fa fa-phone"></i> +57 4488123</li>
+            <li><i class="fa fa-envelope"></i> solmarketdea@gmail.com</li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3 wow fadeInDown">
+          <h4>Resolvemos tus dudas</h4>
+          <p>¿Tienes alguna duda? Contáctanos directamente por WhatsApp.</p>
+          <a class="btn btn-success" target="_blank" href="https://wa.me/573012374215">
+            <i class="fa fa-whatsapp"></i> Chatea con nosotros
+          </a>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center small">
+        &copy; 2025 Sol Market. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script>new WOW().init();</script>
+</body>
+</html>

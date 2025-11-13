@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOL-MARKET</title>
+
+  <!-- Archivos CSS -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <img src="{{ url_for('static', filename='img/logo222.png') }}" alt="" width="150" height="60"/>         
+          </div>
+          <div class="navbar-brand2">
+            <img src="{{ url_for('static', filename='img/logot.png') }}" alt="" width="150" height="60"/>         
+          </div>
+        </div>
+          <div class="navbar-collapse collapse">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="http://127.0.0.1:5000/reservas">Reserva De Compra</a></li>
+        <li><a href="http://127.0.0.1:5000/ventas">Registro De venta</a></li>
+        <li role="presentation"><a href="paquetes.html" class="active">Ofertas</a></li>
+        <li><a href="http://127.0.0.1:5000/registro">Registrate</a></li>
+
+      </ul>
+    </div>
+        </div>  
+      </div>
+    </nav>
+  </header>
+
+  <section class="contacto-page">
+    <div class="container">
+      <div class="text-center">
+        <h2>REALIZA ACA TU REGISTRO!</h2>
+        <p>Para Sol Market es un placer tenerte en nuestra plataforma</p>
+      </div>
+      <div class="row contacto-wrap">
+        <div class="col-md-6 col-md-offset-3">
+          
+          <!-- Mensaje de éxito -->
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="alert alert-success text-center">
+                {{ messages[0] }}
+              </div>
+            {% endif %}
+          {% endwith %}
+
+          <form action="/guardar" method="post" role="form">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" placeholder="Nombre Completo" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="cedula" class="form-control" placeholder="Número de documento" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="celular" class="form-control" placeholder="Celular" required>
+            </div>
+            <p>Selecciona el Rol</p>
+            <select name="rol" class="form-control" required>
+              <option value="Comprador">Comprador</option>
+              <option value="Vendedor" selected>Vendedor</option>
+              <option value="Comprador/Vendedor">Comprador/Vendedor</option>
+              <option value="Usuario General">Usuario General</option>
+            </select>
+            <br>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; Sol Market — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+</html>

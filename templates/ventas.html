@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ventas - Sol Market</title>
+
+  <!-- Bootstrap y estilos -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="p-4">
+
+  <!-- Header -->
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <img src="{{ url_for('static', filename='img/logo222.png') }}" alt="Logo principal" width="150" height="60">
+          </div>
+          <div class="navbar-brand2">
+            <img src="{{ url_for('static', filename='img/logot.png') }}" alt="Logo secundario" width="150" height="60">
+          </div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav nav-tabs" role="tablist">
+            <li><a href="{{ url_for('ventas_vendedor') }}">Mis Ofertas</a></li>
+            <li><a href="{{ url_for('logout') }}">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-4">
+    <h2 class="mb-4 text-center" style="color:white;">Registrar Oferta de Energía</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success text-center">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form id="formVenta" class="mx-auto" style="max-width: 600px;" method="post" action="{{ url_for('guardar_venta_v') }}">
+      <!-- Nombre y documento cargados desde sesión -->
+      <input type="text" name="nombre_vendedor" value="{{ session['nombre'] }}" class="form-control mb-3" readonly>
+      <input type="hidden" name="numero_documento" value="{{ session['numero_documento'] }}">
+
+      <input type="number" id="cantidad_horas" name="cantidad_horas" placeholder="Cantidad de horas / kWh" step="0.01" class="form-control mb-3" required>
+      <input type="number" id="precioxhora" name="precioxhora" placeholder="Precio por hora / kWh ($)" step="0.01" class="form-control mb-3" required>
+      <input type="number" id="preciototal" name="preciototal" placeholder="Precio total ($)" step="0.01" class="form-control mb-3" readonly>
+
+      <button type="submit" class="btn btn-primary w-100">Guardar Oferta de Energía</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script>
+    new WOW().init();
+
+    // Calcular precio total automáticamente
+    function calcularTotal() {
+      const cantidad = parseFloat(document.getElementById('cantidad_horas').value) || 0;
+      const precio = parseFloat(document.getElementById('precioxhora').value) || 0;
+      document.getElementById('preciototal').value = (cantidad * precio).toFixed(2);
+    }
+
+    document.getElementById('cantidad_horas').addEventListener('input', calcularTotal);
+    document.getElementById('precioxhora').addEventListener('input', calcularTotal);
+  </script>
+</body>
+</html>

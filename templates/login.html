@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Sol Market</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <style>
+    body {
+      background-color: #f5f6fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-card {
+      background-color: #ffffff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-card h2 {
+      color: #198754;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #198754;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #146c43;
+    }
+
+    .btn-secondary {
+      border-radius: 6px;
+    }
+
+    .form-label {
+      font-weight: 500;
+    }
+
+    .alert {
+      margin-top: 15px;
+    }
+
+    .footer-text {
+      margin-top: 20px;
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h2>Iniciar sesión</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning text-center">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+      <div class="mb-3">
+        <label for="numero_documento" class="form-label">Número de documento</label>
+        <input type="text" class="form-control" id="numero_documento" name="numero_documento" placeholder="Ingrese su documento" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="clave" class="form-label">Clave</label>
+        <input type="password" class="form-control" id="clave" name="clave" placeholder="Ingrese su clave" required>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <a href="{{ url_for('registro_form') }}" class="btn btn-secondary">Volver</a>
+      </div>
+    </form>
+
+    <p class="footer-text">© 2025 Sol-Market | Todos los derechos reservados</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

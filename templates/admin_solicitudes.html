@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Administrador - Solicitudes de Registro</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <style>
+    body {
+      background-color: #f5f6fa;
+    }
+    .navbar {
+      background-color: #198754;
+    }
+    .navbar-brand, .nav-link, .navbar-text {
+      color: #fff !important;
+    }
+    .table thead {
+      background-color: #198754;
+      color: white;
+    }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Sol-Market | Admin</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin_ventas') }}">Ventas</a>
+          </li>
+        </ul>
+
+        <div class="d-flex">
+          <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Cerrar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="card p-4">
+      <h3 class="mb-4 text-center text-success">📄 Solicitudes de Registro</h3>
+
+      {% if solicitudes and solicitudes|length > 0 %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+          <thead>
+            <tr class="text-center">
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Documento</th>
+              <th>Correo</th>
+              <th>Dirección</th>
+              <th>Tipo Usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in solicitudes %}
+            <tr>
+              <td class="text-center">{{ s.id }}</td>
+              <td>{{ s.nombre }}</td>
+              <td class="text-center">{{ s.numero_documento }}</td>
+              <td>{{ s.correo }}</td>
+              <td>{{ s.direccion }}</td>
+              <td class="text-center">{{ s.tipo_usuario }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+        <div class="alert alert-warning text-center">
+          ⚠️ No hay solicitudes de registro registradas todavía.
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <footer class="text-center mt-5 mb-3 text-muted">
+    © 2025 Sol-Market | Panel del Administrador
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

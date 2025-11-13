@@ -1,0 +1,15 @@
+
+[
+  {"question": "¿Qué es una comunidad energética?", "answer": "Una comunidad energética es un grupo de personas, empresas o instituciones que se organizan para producir, consumir y gestionar localmente energía renovable, compartiendo beneficios y decisiones."},
+  {"question": "¿Cómo puedo instalar paneles solares en mi casa?", "answer": "Para instalar paneles solares necesitas evaluar tu consumo, la radiación solar, el espacio en techo, y contactar a un instalador certificado. También revisa incentivos y requisitos locales."},
+  {"question": "¿Cómo vender la energía que produzco con paneles solares?", "answer": "En Colombia puedes vender excedentes mediante esquemas de medición neta, comercialización directa o acuerdos con comercializadoras. Requiere medidor bidireccional y cumplir requisitos regulatorios."},
+  {"question": "¿Qué incentivos hay para energía solar en Colombia?", "answer": "Existen incentivos fiscales, tarifas de energía para proyectos rurales y programas regionales. Además, algunos municipios ofrecen beneficios y subsidios; verifica programas nacionales y locales."},
+  {"question": "¿Qué tipos de paneles solares existen?", "answer": "Los principales son monocristalinos, policristalinos y de película delgada. Los monocristalinos suelen ser más eficientes; la elección depende de presupuesto y espacio."},
+  {"question": "¿Cuánto dura un sistema solar fotovoltaico?", "answer": "Los paneles tienen garantía típica de 20–25 años y pueden seguir funcionando más tiempo con menor eficiencia. Inversores y baterías tienen ciclos de vida menores y requieren mantenimiento."},
+  {"question": "¿Necesito baterías para tener energía solar?", "answer": "No siempre. Las baterías permiten almacenar excedentes y dar continuidad en cortes. Para autoconsumo básico no son obligatorias; su necesidad depende de autoconsumo, respaldo y economías."},
+  {"question": "¿Qué mantenimiento requiere un sistema solar?", "answer": "Mantenimiento básico: limpieza periódica de paneles, revisión de conexiones, verificar rendimiento del inversor y control de sombras. Un mantenimiento anual suele ser suficiente."},
+  {"question": "¿Qué documentación necesito para un proyecto de energía comunitaria?", "answer": "Documentos típicos: estudios de factibilidad, permisos municipales, contratos de suministro/operación, acuerdos entre miembros y registros ante autoridades energéticas."},
+
+  {"question": "¿Cuánto cuesta instalar paneles solares?", "answer": "El costo varía según tamaño del sistema, calidad de componentes e instalación. Se mide en COP por kilovatio pico (kWp). Pide cotizaciones y calcula el periodo de retorno según tu consumo."}
+  
+]

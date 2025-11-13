@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservas - Sol Market</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="p-4">
+
+  <header id="header">
+    <nav class="navbar navbar-default navbar-static-top" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <img src="{{ url_for('static', filename='img/logo222.png') }}" alt="Logo Sol Market" width="150" height="60">
+          </div>
+          <div class="navbar-brand2">
+            <img src="{{ url_for('static', filename='img/logot.png') }}" alt="Sol Market Texto" width="150" height="60">
+          </div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav nav-tabs" role="tablist">
+            <li><a href="{{ url_for('reservas') }}">Compra de energía</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="mb-4 text-center" style="color:white;">Solicitud Para La Compra De Energía</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success text-center">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('guardar_venta') }}" method="post">
+      <!-- Datos del comprador desde sesión -->
+      <input type="text" name="nombre_comprador" class="form-control mb-3" required
+             value="{{ session['nombre'] }}" readonly>
+      <input type="text" name="numero_documento" class="form-control mb-3" required
+             value="{{ session['numero_documento'] }}" readonly>
+
+      <!-- Cantidad de energía -->
+      <input type="number" step="0.01" name="energia_solicitada" placeholder="Cantidad de energía (kWh)" class="form-control mb-3" required>
+
+      <!-- Datos adicionales -->
+      <input type="text" name="celular" placeholder="Celular" class="form-control mb-3">
+      <input type="date" name="fecha" class="form-control mb-3" required>
+      <input type="text" name="metodo_pago" placeholder="Método de pago" class="form-control mb-3">
+
+      <!-- Dropdown de vendedores -->
+      <select name="id_vendedor" class="form-control mb-3" required>
+        <option value="">Seleccione un vendedor</option>
+        {% for vendedor in vendedores %}
+          <option value="{{ vendedor.id }}">{{ vendedor.nombre }}</option>
+        {% endfor %}
+      </select>
+
+      <button type="submit" class="btn btn-primary w-100">Comprar Energía</button>
+    </form>
+  </div>
+
+  <footer class="mt-5 bg-dark text-white pt-4 pb-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <h4>Sobre Nosotros</h4>
+          <p>Sol Market es un software que facilita la compra y venta de energía solar.</p>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-home"></i> Medellín, Colombia</li>
+            <li><i class="fa fa-phone"></i> +57 4488123</li>
+            <li><i class="fa fa-envelope"></i> solmarketdea@gmail.com</li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 mb-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
+          <h4>Resolvemos tus dudas</h4>
+          <p>¿Tienes alguna duda? Contáctanos directamente por WhatsApp.</p>
+          <a class="btn btn-success" target="_blank" href="https://wa.me/573012374215">
+            <i class="fa fa-whatsapp"></i> Chatea con nosotros
+          </a>
+        </div>
+      </div>
+
+      <hr class="bg-light">
+      <div class="text-center small">
+        &copy; 2025 Sol Market. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script> new WOW().init(); </script>
+</body>
+</html>
